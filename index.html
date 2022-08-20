@@ -1,0 +1,26 @@
+<body>
+    <label for="fname">How much Watts your PC consumes</label>
+    <input type="number" id="fname" name="fname"><br><br>
+    <label for="lname">How much Watts your monitor consumes</label>
+    <input type="number" id="lname" name="lname"><br><br>
+    <label for="lname">You worked for hours</label>
+    <input type="number" id="hours" name="hours"><br><br>
+    <label for="lname">Price per 1kWh</label>
+    <input type="number" id="price" name="price"><br><br>
+    <input type="submit" value="Submit" onclick="calculate_consumption()">
+    <div id="result"></div>
+    <div id="total_price"></div>
+
+</body>
+<script>
+  function calculate_consumption(){
+    var fname = Number(document.getElementById('fname').value);
+    var lname = Number(document.getElementById('lname').value);
+    var hours = Number(document.getElementById('hours').value);
+    var price = Number(document.getElementById('price').value);
+    let comsumption = (fname + lname)*hours
+    let total_price = comsumption*price/1000
+    document.getElementById('result').innerText = "Your setup consumes " + comsumption +" Watt"
+    document.getElementById('total_price').innerText = "It costs you " + total_price
+  }
+  </script>
